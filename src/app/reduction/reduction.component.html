@@ -1,0 +1,45 @@
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="../../assets/reduction.png" alt="Logo">
+
+        </div>
+        <h1 class="header-title">Reduction</h1>
+
+        <div class="search-bar">
+          <input type="text" placeholder="We help you find your way.." class="search-input" [(ngModel)]="searchInput">
+          <button class="search-button" (click)="searchReduction()">Search</button>
+        </div>
+      </header>
+      
+      <div class="card-container">
+        <div class="card" *ngFor="let r of reduction;">
+          <img [src]="r.product.imageProduct" alt="Reduction 1" class="card-image">
+          <div class="card-content">
+            <h2 class="card-title">{{ r.nameReduction }}</h2>
+            <p class="card-description">{{ r.product.descriptionProduct }}</p>
+            <h3 class="card-title">{{ r.product.shop.nameShop }}</h3>
+            <a (click)="showImageOnClick(r.product.shop.localisationShop)" class="card-link">View Shop</a>
+      
+            <div class="card-reduction">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px" height="24px">
+                <path fill="#3A6FF1" d="M19.71,8.29l-5-5C14.53,3.11,14.28,3,14,3H4C3.45,3,3,3.45,3,4v10c0,0.28,0.11,0.53,0.29,0.71l5,5 C8.47,19.89,8.72,20,9,20s0.53-0.11,0.71-0.29l10-10C20.11,13.53,20,13.28,20,13S20.11,12.47,19.71,12.29L19.71,8.29z M8,17.59V14h2.59 L17.59,8H14V5H8v12H8.41L8,17.59z"/>
+              </svg>
+              <span>{{ r.newprice }} dt</span>
+            </div>
+            <h4>{{ r.pourcentage }}%</h4>
+          </div>
+        </div>
+      </div>
+      
+      <div class="navigation-buttons">
+        <button mat-fab color="primary" class="back-button" (click)="goBack()">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      
+        <button mat-fab color="primary" routerLink="/home">
+          <mat-icon>home</mat-icon>
+        </button>
+      </div>
+</body>
+
